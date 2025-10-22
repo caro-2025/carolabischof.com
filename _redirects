@@ -1,6 +1,0 @@
-# Redirect www to non-www
-https://www.smileeverydamnday.com/* https://smileeverydamnday.com/:splat 301!
-
-# Redirect http to https
-http://smileeverydamnday.com/* https://smileeverydamnday.com/:splat 301!
-http://www.smileeverydamnday.com/* https://smileeverydamnday.com/:splat 301!
