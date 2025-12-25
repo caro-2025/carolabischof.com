@@ -234,6 +234,15 @@
             box-shadow: 0 10px 30px rgba(0, 0, 0, 0.3);
         }
 
+        /* SEO-only image for Google Bilder indexing */
+        .seo-hero-image {
+            position: absolute;
+            width: 1px;
+            height: 1px;
+            opacity: 0.001;
+            pointer-events: none;
+        }
+
         .social-icons {
             display: flex;
             gap: 1.5rem;
@@ -838,6 +847,8 @@
             <!-- FORCE CDN UPDATE: Clean title only -->
             <h1>Smile Every Damn Day</h1>
             <p class="hero-subtitle">A visual diary by Carola Bischof</p>
+            <!-- SEO image for Google Bilder -->
+            <img src="Portfoliobild.jpg" alt="Carola Bischof – Smile Every Damn Day – Portfolio" class="seo-hero-image" width="1200" height="630">
             <img src="Portfoliobild.jpg" alt="Carola Maria Profile Picture" class="profile-image">
             <a href="#projects" class="cta-button">Explore my work</a>
             <div class="social-icons">
