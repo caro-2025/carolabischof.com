@@ -190,7 +190,6 @@
 
         /* Hero Section */
         .hero {
-            background: url('Bilder/Sonnenblumen.JPG') center/cover no-repeat;
             height: 100vh;
             display: flex;
             align-items: center;
@@ -201,6 +200,15 @@
             overflow: hidden;
         }
 
+        .hero-bg {
+            position: absolute;
+            inset: 0;
+            width: 100%;
+            height: 100%;
+            object-fit: cover;
+            z-index: 0;
+        }
+
         .hero::before {
             content: '';
             position: absolute;
@@ -209,10 +217,11 @@
             right: 0;
             bottom: 0;
             background: rgba(0, 0, 0, 0.3);
+            z-index: 1;
         }
 
         .hero-content {
-            z-index: 1;
+            z-index: 2;
             max-width: 600px;
             padding: 3rem 2rem;
             display: flex;
@@ -234,15 +243,6 @@
             margin: 0 0 2rem 0;
             animation: fadeInUp 1s ease 0.4s both;
             box-shadow: 0 10px 30px rgba(0, 0, 0, 0.3);
-        }
-
-        /* SEO-only image for Google Bilder indexing */
-        .seo-hero-image {
-            position: absolute;
-            width: 1px;
-            height: 1px;
-            opacity: 0.001;
-            pointer-events: none;
         }
 
         .social-icons {
@@ -845,12 +845,19 @@
 
     <!-- Hero Section -->
     <section class="hero" id="home">
+        <img
+            class="hero-bg"
+            src="Bilder/Sonnenblumen.JPG"
+            alt="Carola Bischof – Smile Every Damn Day – Sunflowers Background"
+            width="1920"
+            height="1080"
+            loading="eager"
+            fetchpriority="high"
+        />
         <div class="hero-content">
             <!-- FORCE CDN UPDATE: Clean title only -->
             <h1>Smile Every Damn Day</h1>
             <p class="hero-subtitle">A visual diary by Carola Bischof</p>
-            <!-- SEO image for Google Bilder -->
-            <img src="Portfoliobild.jpg" alt="Carola Bischof – Smile Every Damn Day – Portfolio" class="seo-hero-image" width="1200" height="630">
             <img src="Portfoliobild.jpg" alt="Carola Maria Profile Picture" class="profile-image">
             <a href="#projects" class="cta-button">Explore my work</a>
             <div class="social-icons">
