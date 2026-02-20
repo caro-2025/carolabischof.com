@@ -16,7 +16,7 @@ Disallow: /*.rtf
 Disallow: /create_favicons.py
 
 # Sitemap location
-Sitemap: https://smileeverydamnday.com/sitemap.xml
+Sitemap: https://www.carolabischof.com/sitemap.xml
 
 # Crawl-delay for respectful crawling
 Crawl-delay: 1
