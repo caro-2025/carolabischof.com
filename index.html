@@ -363,6 +363,25 @@
             background: #E8E2D6;
         }
 
+        /* Work Samples Section */
+        .work-samples {
+            background: #DDD5C9;
+        }
+
+        .work-samples-grid {
+            display: grid;
+            grid-template-columns: repeat(2, 1fr);
+            gap: 1.5rem;
+            margin-top: 2rem;
+        }
+
+        .work-samples-grid img {
+            width: 100%;
+            border-radius: 8px;
+            object-fit: cover;
+            box-shadow: 0 4px 12px rgba(0,0,0,0.15);
+        }
+
 /* Projects Section - Carousel */
         .projects-carousel {
             position: relative;
@@ -834,7 +853,8 @@
             </div>
             <ul class="nav-links" id="navLinks">
                 <li><a href="#about" onclick="closeMenu()">About</a></li>
-<li><a href="#projects" onclick="closeMenu()">My Projects</a></li>
+                <li><a href="#work-samples" onclick="closeMenu()">Selected Work</a></li>
+                <li><a href="#projects" onclick="closeMenu()">My Projects</a></li>
                 <li><a href="#contact" onclick="closeMenu()">Contact</a></li>
             </ul>
         </div>
@@ -888,6 +908,20 @@
             <h2>About</h2>
             <p>What fascinates me most about filmmaking is the creative process of turning everyday moments and observations into meaningful stories. What matters to me is telling stories that connect with people and move them.</p>
             <p>My background in geography and social and cultural anthropology shapes the way I see the world, the people in it, and how they live. In addition, I built a solid theoretical and practical foundation in video journalism, including dramaturgy, storytelling, camera work, editing, and post-production.</p>
+        </div>
+    </section>
+
+    <!-- Work Samples Section -->
+    <section class="section work-samples" id="work-samples">
+        <div class="section-content">
+            <h2>Selected Work Samples</h2>
+            <p>The following pieces were created during the Video Journalism Masterclass at the Berliner Journalistenschule. They provide an overview of my work. For privacy reasons, the full videos are not publicly available, but I can share password-protected screening links on request.</p>
+            <div class="work-samples-grid">
+                <img src="Bilder/schaerfenverlagerung-1.png" alt="Schärfenverlagerung – Arbeitsproben 1">
+                <img src="Bilder/schaerfenverlagerung-2.png" alt="Schärfenverlagerung – Arbeitsproben 2">
+                <img src="Bilder/schaerfenverlagerung-3.png" alt="Schärfenverlagerung – Arbeitsproben 3">
+                <img src="Bilder/schaerfenverlagerung-4.png" alt="Schärfenverlagerung – Arbeitsproben 4">
+            </div>
         </div>
     </section>
 
