@@ -206,15 +206,7 @@
             color: white;
             position: relative;
             overflow: hidden;
-        }
-
-        .hero-bg {
-            position: absolute;
-            inset: 0;
-            width: 100%;
-            height: 100%;
-            object-fit: cover;
-            z-index: 0;
+            background: url('Bilder/Sonnenblumen.JPG') center/cover no-repeat;
         }
 
         .hero::before {
@@ -224,16 +216,35 @@
             left: 0;
             right: 0;
             bottom: 0;
-            background: rgba(0, 0, 0, 0.45);
+            background: rgba(0, 0, 0, 0.3);
             z-index: 1;
         }
 
         .hero-content {
             z-index: 2;
+            max-width: 420px;
+            padding: 2.5rem 2rem;
             display: flex;
             flex-direction: column;
             align-items: center;
+            background: rgba(180, 140, 80, 0.25);
+            border-radius: 24px;
+            backdrop-filter: blur(14px);
+            -webkit-backdrop-filter: blur(14px);
+            border: 1px solid rgba(255, 255, 255, 0.2);
+            box-shadow: 0 8px 32px rgba(0, 0, 0, 0.15);
             transition: transform 0.1s ease-out;
+        }
+
+        .profile-image {
+            width: 260px;
+            height: 260px;
+            border-radius: 50%;
+            object-fit: cover;
+            border: 4px solid rgba(255, 255, 255, 0.35);
+            margin: 0 0 2rem 0;
+            animation: fadeInUp 1s ease 0.4s both;
+            box-shadow: 0 8px 24px rgba(0, 0, 0, 0.25);
         }
 
         .social-icons {
@@ -602,18 +613,6 @@
 
         /* Responsive Design */
         @media (max-width: 768px) {
-            .hero {
-                background: #000;
-            }
-
-            .hero-bg {
-                object-fit: contain;
-            }
-
-            .hero::before {
-                display: none;
-            }
-
             .nav-container {
                 padding: 0 1rem;
             }
@@ -649,8 +648,18 @@
                 list-style: none;
             }
 
+            .hero-content {
+                max-width: calc(100vw - 3rem);
+                padding: 2rem 1.5rem;
+            }
+
+            .profile-image {
+                width: 200px;
+                height: 200px;
+            }
+
             .hero h1 {
-                font-size: 2.625rem;
+                font-size: 2rem;
                 white-space: normal;
                 word-break: break-word;
             }
@@ -853,15 +862,9 @@
 
     <!-- Hero Section -->
     <section class="hero" id="home">
-        <video
-            class="hero-bg"
-            src="showreel.mp4"
-            autoplay
-            muted
-            loop
-            playsinline
-        ></video>
         <div class="hero-content">
+            <h1>Carola Bischof</h1>
+            <img src="Portfoliobild.jpg" alt="Carola Bischof – Portfoliobild" class="profile-image" loading="eager">
             <a href="#projects" class="cta-button">Explore my work</a>
             <div class="social-icons">
                 <a href="https://www.youtube.com/@carolabischof" class="social-icon youtube" title="YouTube" target="_blank" rel="noopener noreferrer">
