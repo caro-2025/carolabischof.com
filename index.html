@@ -565,10 +565,11 @@
 
         /* Footer */
         footer {
-            background: #54653E;
+            background: rgba(0, 0, 0, 0.5);
+            backdrop-filter: blur(12px);
+            -webkit-backdrop-filter: blur(12px);
             color: #F5F1E8;
-            padding: 1rem 0;
-            text-align: center;
+            padding: 1.2rem 0;
         }
 
         .footer-content {
@@ -586,6 +587,7 @@
             display: flex;
             flex-direction: column;
             gap: 0.3rem;
+            text-align: left;
         }
 
         .footer-links {
@@ -620,8 +622,8 @@
         }
 
         .footer-bottom {
-            color: #F5F1E8;
-            order: 2;
+            color: rgba(245, 241, 232, 0.7);
+            font-size: 0.85rem;
         }
 
         /* Animations */
@@ -814,17 +816,12 @@
             .footer-content {
                 padding: 0 1rem;
                 flex-direction: column;
-                gap: 0.5rem;
+                align-items: flex-start;
+                gap: 0.8rem;
             }
-            
-            .footer-links {
-                order: 1;
-                position: relative;
-                right: auto;
-            }
-            
-            .footer-bottom {
-                order: 2;
+
+            .footer-social {
+                align-self: flex-start;
             }
         }
 
