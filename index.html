@@ -656,17 +656,40 @@
 
             .nav-links {
                 display: none;
-                position: absolute;
-                top: 100%;
+                position: fixed;
+                top: 0;
                 left: 0;
                 width: 100%;
-                background: rgba(0, 0, 0, 0.7);
-                backdrop-filter: blur(10px);
+                height: 100%;
+                background: #ede8e0;
                 flex-direction: column;
-                padding: 2rem 0;
-                gap: 1.5rem;
+                align-items: center;
+                justify-content: center;
+                gap: 2.5rem;
                 text-align: center;
-                box-shadow: 0 4px 20px rgba(0, 0, 0, 0.2);
+                z-index: 999;
+            }
+
+            .nav-links a {
+                color: rgba(93, 78, 55, 0.78);
+                font-size: 0.85rem;
+                letter-spacing: 0.2em;
+            }
+
+            nav.menu-open {
+                background: #ede8e0;
+                backdrop-filter: none;
+                -webkit-backdrop-filter: none;
+                border-bottom: none;
+                z-index: 1000;
+            }
+
+            nav.menu-open .logo a {
+                color: rgba(93, 78, 55, 0.9);
+            }
+
+            nav.menu-open .hamburger span {
+                background: rgba(93, 78, 55, 0.8);
             }
 
             .nav-links li + li::before {
@@ -1133,17 +1156,21 @@
         function toggleMenu() {
             const navLinks = document.getElementById('navLinks');
             const hamburger = document.querySelector('.hamburger');
-            
+            const navEl = document.querySelector('nav');
+
             navLinks.classList.toggle('active');
             hamburger.classList.toggle('active');
+            navEl.classList.toggle('menu-open');
         }
 
         function closeMenu() {
             const navLinks = document.getElementById('navLinks');
             const hamburger = document.querySelector('.hamburger');
-            
+            const navEl = document.querySelector('nav');
+
             navLinks.classList.remove('active');
             hamburger.classList.remove('active');
+            navEl.classList.remove('menu-open');
         }
 
         // Close menu when clicking outside
