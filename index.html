@@ -1115,21 +1115,20 @@
         });
 
         // Hamburger Menu Functions
-        // Switch nav color based on hero visibility
-        const hero = document.querySelector('.hero');
+        // Switch nav color based on scroll position
         const nav = document.querySelector('nav');
 
-        const heroObserver = new IntersectionObserver((entries) => {
-            entries.forEach(entry => {
-                if (entry.isIntersecting) {
-                    nav.classList.remove('light-bg');
-                } else {
-                    nav.classList.add('light-bg');
-                }
-            });
-        }, { threshold: 0.15 });
+        function updateNavColor() {
+            const heroHeight = document.querySelector('.hero').offsetHeight;
+            if (window.scrollY > heroHeight * 0.85) {
+                nav.classList.add('light-bg');
+            } else {
+                nav.classList.remove('light-bg');
+            }
+        }
 
-        heroObserver.observe(hero);
+        window.addEventListener('scroll', updateNavColor);
+        updateNavColor();
 
         function toggleMenu() {
             const navLinks = document.getElementById('navLinks');
