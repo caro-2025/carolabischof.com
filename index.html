@@ -560,26 +560,18 @@
 
         /* Footer */
         footer {
-            position: relative;
             background: url('Bilder/Dronenaufnahme.jpg') center/cover no-repeat;
             color: #F5F1E8;
-            padding: 5rem 0 3rem;
-            overflow: hidden;
         }
 
-        footer::before {
-            content: '';
-            position: absolute;
-            inset: 0;
+        .footer-glass {
             background: rgba(0, 0, 0, 0.45);
-            backdrop-filter: blur(6px);
-            -webkit-backdrop-filter: blur(6px);
-            z-index: 0;
+            backdrop-filter: blur(8px);
+            -webkit-backdrop-filter: blur(8px);
+            padding: 5rem 0 3rem;
         }
 
         .footer-content {
-            position: relative;
-            z-index: 1;
             max-width: 1200px;
             margin: 0 auto;
             padding: 0 2rem;
@@ -783,6 +775,10 @@
                 padding: 2rem 1rem;
             }
 
+            .footer-glass {
+                padding: 3rem 0 2rem;
+            }
+
             .footer-content {
                 padding: 0 1.5rem;
                 flex-direction: column;
@@ -959,6 +955,7 @@
 
     <!-- Footer -->
     <footer id="contact">
+      <div class="footer-glass">
         <div class="footer-content">
             <div class="footer-left">
                 <h3 class="footer-heading">Get In Touch</h3>
@@ -989,6 +986,7 @@
                 </a>
             </div>
         </div>
+      </div>
     </footer>
 
     <script>
