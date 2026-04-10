@@ -630,25 +630,17 @@
 
             .nav-links {
                 display: none;
-                position: fixed;
-                top: 0;
+                position: absolute;
+                top: 100%;
                 left: 0;
                 width: 100%;
-                height: 100%;
-                background: #ede8e0;
+                background: rgba(0, 0, 0, 0.7);
+                backdrop-filter: blur(10px);
                 flex-direction: column;
-                align-items: center;
-                justify-content: center;
-                gap: 2.5rem;
+                padding: 2rem 0;
+                gap: 1.5rem;
                 text-align: center;
-                z-index: 999;
-            }
-
-            .nav-links a {
-                color: rgba(93, 78, 55, 0.78);
-                font-size: 0.85rem;
-                letter-spacing: 0.2em;
-                font-weight: 400;
+                box-shadow: 0 4px 20px rgba(0, 0, 0, 0.2);
             }
 
             .nav-links li + li::before {
@@ -661,22 +653,6 @@
 
             .nav-links li {
                 list-style: none;
-            }
-
-            nav.menu-open {
-                background: #ede8e0;
-                backdrop-filter: none;
-                -webkit-backdrop-filter: none;
-                border-bottom: none;
-                z-index: 1000;
-            }
-
-            nav.menu-open .logo a {
-                color: rgba(93, 78, 55, 0.9);
-            }
-
-            nav.menu-open .hamburger span {
-                background: rgba(93, 78, 55, 0.8);
             }
 
             .hero-content {
@@ -1116,21 +1092,17 @@
         function toggleMenu() {
             const navLinks = document.getElementById('navLinks');
             const hamburger = document.querySelector('.hamburger');
-            const nav = document.querySelector('nav');
-
+            
             navLinks.classList.toggle('active');
             hamburger.classList.toggle('active');
-            nav.classList.toggle('menu-open');
         }
 
         function closeMenu() {
             const navLinks = document.getElementById('navLinks');
             const hamburger = document.querySelector('.hamburger');
-            const nav = document.querySelector('nav');
-
+            
             navLinks.classList.remove('active');
             hamburger.classList.remove('active');
-            nav.classList.remove('menu-open');
         }
 
         // Close menu when clicking outside
