@@ -107,6 +107,8 @@
             color: rgba(93, 78, 55, 0.85);
         }
 
+
+
         nav.light-bg .nav-links a {
             color: rgba(93, 78, 55, 0.72);
         }
@@ -243,7 +245,7 @@
             z-index: 0;
         }
 
-        .hero::before {
+.hero::before {
             content: '';
             position: absolute;
             top: 0;
@@ -391,6 +393,7 @@
             font-size: 1rem;
             font-weight: 300;
             line-height: 1.9;
+            letter-spacing: 0.03em;
             margin-bottom: 1.5rem;
             text-align: center;
             color: #444444;
@@ -649,27 +652,45 @@
 
             .nav-container {
                 padding: 0 1rem;
+                position: relative;
+                justify-content: flex-end;
+            }
+
+            .logo {
+                position: absolute;
+                left: 50%;
+                transform: translateX(-50%);
             }
 
             .hamburger {
                 display: flex;
             }
 
+            nav {
+                border-bottom: none;
+            }
+
             .nav-links {
                 display: none;
-                position: absolute;
-                top: 100%;
-                left: 0;
-                width: 100%;
-                background: rgba(237, 232, 224, 0.92);
-                backdrop-filter: blur(8px);
-                -webkit-backdrop-filter: blur(8px);
+                position: fixed;
+                top: 79px;
+                left: 0 !important;
+                right: 0 !important;
+                width: 100vw !important;
+                margin: 0 !important;
+                max-width: none !important;
+                background: rgba(245, 241, 232, 0.95);
+                backdrop-filter: blur(10px);
+                -webkit-backdrop-filter: blur(10px);
                 flex-direction: column;
                 align-items: center;
-                gap: 2rem;
+                padding: 2rem 0;
+                gap: 1.5rem;
                 text-align: center;
-                padding: 3rem 0;
-                z-index: 999;
+                box-shadow: 0 4px 20px rgba(0, 0, 0, 0.1);
+                border: none;
+                outline: none;
+                z-index: 10001;
             }
 
             .nav-links a {
@@ -680,9 +701,7 @@
 
             nav.menu-open {
                 background: rgba(237, 232, 224, 0.95);
-                backdrop-filter: blur(8px);
-                -webkit-backdrop-filter: blur(8px);
-                border-bottom: 1px solid rgba(93, 78, 55, 0.1);
+                border-bottom: none;
                 z-index: 1000;
             }
 
@@ -839,12 +858,18 @@
             .footer-content {
                 padding: 0 1.5rem;
                 flex-direction: column;
-                align-items: flex-start;
+                align-items: center;
                 gap: 2.5rem;
+                text-align: center;
+            }
+
+            .footer-left {
+                align-items: center;
+                text-align: center;
             }
 
             .footer-social {
-                align-self: flex-start;
+                align-self: center;
                 gap: 1.5rem;
             }
         }
