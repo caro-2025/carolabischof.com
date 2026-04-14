@@ -409,11 +409,32 @@
             background: #f5f0ea;
         }
 
+        .work-samples-layout {
+            display: flex;
+            gap: 4rem;
+            align-items: flex-start;
+            margin-top: 2rem;
+        }
+
+        .work-samples-text {
+            flex: 1;
+            font-family: 'Manrope', sans-serif;
+            font-size: 1rem;
+            font-weight: 300;
+            line-height: 1.9;
+            letter-spacing: 0.03em;
+            color: #444444;
+        }
+
+        .work-samples-text p {
+            margin-bottom: 1.5rem;
+        }
+
         .work-samples-grid {
+            flex: 1;
             display: grid;
             grid-template-columns: repeat(2, 1fr);
             gap: 1.5rem;
-            margin-top: 2rem;
         }
 
         .work-samples-grid img {
@@ -834,6 +855,11 @@
                 width: 100%;
             }
 
+            .work-samples-layout {
+                flex-direction: column;
+                gap: 2rem;
+            }
+
             .project-description {
                 padding: 0 1rem;
                 font-size: 1rem;
@@ -974,11 +1000,19 @@
     <section class="section work-samples" id="work-samples">
         <div class="section-content">
             <h2>Work Samples</h2>
-            <div class="work-samples-grid">
-                <img src="Bilder/schaerfenverlagerung-1.png" alt="Schärfenverlagerung – Arbeitsproben 1">
-                <img src="Bilder/schaerfenverlagerung-2.png" alt="Schärfenverlagerung – Arbeitsproben 2">
-                <img src="Bilder/schaerfenverlagerung-3.png" alt="Schärfenverlagerung – Arbeitsproben 3">
-                <img src="Bilder/schaerfenverlagerung-4.png" alt="Schärfenverlagerung – Arbeitsproben 4">
+            <div class="work-samples-layout">
+                <div class="work-samples-text">
+                    <p>To me, filmmaking is the art of turning quiet observations into meaningful stories.</p>
+                    <p>My background in Geography and Social and Cultural Anthropology shapes the way I see the world. It taught me to look closer at how people live, how they connect, and what truly moves them.</p>
+                    <p>I'm driven by a simple belief: that every person has a story worth telling, if you only know how to look and listen.</p>
+                    <p>Video journalism gave me a strong foundation in shaping stories with clarity and heart. Through camera work, visual storytelling, and editing, my aim is always to make complex subjects feel human and tangible. I'm looking for the real moments that stay with you.</p>
+                </div>
+                <div class="work-samples-grid">
+                    <img src="Bilder/schaerfenverlagerung-1.png" alt="Schärfenverlagerung – Arbeitsproben 1">
+                    <img src="Bilder/schaerfenverlagerung-2.png" alt="Schärfenverlagerung – Arbeitsproben 2">
+                    <img src="Bilder/schaerfenverlagerung-3.png" alt="Schärfenverlagerung – Arbeitsproben 3">
+                    <img src="Bilder/schaerfenverlagerung-4.png" alt="Schärfenverlagerung – Arbeitsproben 4">
+                </div>
             </div>
         </div>
     </section>
