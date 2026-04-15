@@ -538,6 +538,38 @@
             display: block;
         }
 
+        /* Drone section */
+        .drone-section {
+            background: #c9bfb0;
+        }
+
+        .drone-section .section-content {
+            text-align: left;
+            max-width: 1100px;
+            margin: 0 auto;
+            padding: 2.5rem 2rem 5rem;
+        }
+
+        .drone-video {
+            flex: 1.2;
+        }
+
+        .drone-video video {
+            width: 100%;
+            border-radius: 8px;
+            box-shadow: 0 4px 12px rgba(0,0,0,0.15);
+        }
+
+        @media (max-width: 768px) {
+            .drone-section .projects-layout {
+                flex-direction: column;
+            }
+
+            .drone-section .section-content {
+                padding: 3rem 1.5rem;
+            }
+        }
+
         /* Kamera section */
         .kamera-section.projects-section {
             background: #e5ddd3;
@@ -1258,6 +1290,24 @@
 
 
 
+
+    <!-- Drone Section -->
+    <section class="section drone-section reveal-section" id="drone">
+        <div class="section-content">
+            <div class="reveal-line"></div>
+            <span class="section-subtitle">What Moves Above</span>
+            <div class="projects-layout reveal-content">
+                <div class="drone-video">
+                    <video src="Bilder/drone-footage.mp4" controls playsinline></video>
+                </div>
+                <div class="projects-text">
+                    <p>Seen from above, the familiar becomes something new.</p>
+                    <p>During the pandemic, I created <em>„Peaceful Moments"</em> — drone footage from Baden-Württemberg that captures the beauty and symmetry of southern Germany.</p>
+                    <p>Even after the pandemic, it reminds us that there is always beauty and comfort, even in the hardest moments.</p>
+                </div>
+            </div>
+        </div>
+    </section>
 
     <!-- Footer -->
     <footer id="contact">
