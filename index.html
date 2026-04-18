@@ -1253,7 +1253,7 @@
 
     <!-- Hero Section -->
     <section class="hero" id="home">
-        <iframe class="hero-bg" src="https://player.vimeo.com/video/1184389368?badge=0&amp;autopause=0&amp;player_id=0&amp;app_id=58479&amp;autoplay=1&amp;muted=1&amp;loop=1&amp;background=1" frameborder="0" allow="autoplay; fullscreen; picture-in-picture; clipboard-write; encrypted-media" title="Showreel 2026"></iframe>
+        <iframe id="vimeo-hero" class="hero-bg" src="https://player.vimeo.com/video/1184389368?badge=0&amp;autopause=0&amp;player_id=0&amp;app_id=58479&amp;autoplay=1&amp;muted=1&amp;loop=0&amp;background=1" frameborder="0" allow="autoplay; fullscreen; picture-in-picture; clipboard-write; encrypted-media" title="Showreel 2026"></iframe>
         <div class="hero-content">
         </div>
     </section>
@@ -1487,6 +1487,17 @@
     </script>
 
     <!-- Structured data: WebSite -->
+    <!-- Vimeo Player API: loop 0–16s only -->
+    <script src="https://player.vimeo.com/api/player.js"></script>
+    <script>
+        var vimeoPlayer = new Vimeo.Player(document.getElementById('vimeo-hero'));
+        vimeoPlayer.on('timeupdate', function(data) {
+            if (data.seconds >= 16) {
+                vimeoPlayer.setCurrentTime(0);
+            }
+        });
+    </script>
+
     <script type="application/ld+json">
     {
       "@context": "https://schema.org",
