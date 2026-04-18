@@ -1492,11 +1492,11 @@
     <script>
         var vimeoPlayer = new Vimeo.Player(document.getElementById('vimeo-hero'));
         vimeoPlayer.ready().then(function() {
-            vimeoPlayer.setCurrentTime(1);
+            vimeoPlayer.setCurrentTime(0);
         });
         vimeoPlayer.on('timeupdate', function(data) {
             if (data.seconds >= 18) {
-                vimeoPlayer.setCurrentTime(1);
+                vimeoPlayer.setCurrentTime(0);
             }
         });
     </script>
