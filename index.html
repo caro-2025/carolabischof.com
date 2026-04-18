@@ -272,6 +272,11 @@
             transform: rotate(-45deg) translate(7px, -6px);
         }
 
+        /* Hero Showreel CTA (mobile only) */
+        .hero-showreel-cta {
+            display: none;
+        }
+
         /* Hero Section */
         .hero {
             height: 100vh;
@@ -911,13 +916,12 @@
             .nav-container {
                 padding: 0 1rem;
                 position: relative;
-                justify-content: flex-end;
+                justify-content: space-between;
             }
 
             .logo {
-                position: absolute;
-                left: 50%;
-                transform: translateX(-50%);
+                position: static;
+                transform: none;
             }
 
             .hamburger {
@@ -986,6 +990,35 @@
             .hero-content {
                 max-width: calc(100vw - 3rem);
                 padding: 2rem 1.5rem;
+            }
+
+            /* Mobile showreel CTA at bottom of hero */
+            .hero-showreel-cta {
+                display: flex;
+                flex-direction: column;
+                align-items: center;
+                position: absolute;
+                bottom: 2.5rem;
+                left: 50%;
+                transform: translateX(-50%);
+                z-index: 3;
+                gap: 0.6rem;
+            }
+
+            .hero-showreel-line {
+                width: 60px;
+                height: 1px;
+                background: rgba(248, 242, 230, 0.7);
+            }
+
+            .hero-showreel-text {
+                font-family: 'Manrope', sans-serif;
+                font-size: 0.65rem;
+                letter-spacing: 0.25em;
+                text-transform: uppercase;
+                color: rgba(248, 242, 230, 0.85);
+                font-weight: 400;
+                white-space: nowrap;
             }
 
             .profile-image {
@@ -1255,6 +1288,10 @@
     <section class="hero" id="home">
         <iframe class="hero-bg" src="https://player.vimeo.com/video/1184389368?badge=0&amp;autopause=0&amp;player_id=0&amp;app_id=58479&amp;autoplay=1&amp;muted=1&amp;loop=1&amp;background=1" frameborder="0" allow="autoplay; fullscreen; picture-in-picture; clipboard-write; encrypted-media" title="Showreel 2026"></iframe>
         <div class="hero-content">
+        </div>
+        <div class="hero-showreel-cta">
+            <div class="hero-showreel-line"></div>
+            <span class="hero-showreel-text">Play Showreel</span>
         </div>
     </section>
 
