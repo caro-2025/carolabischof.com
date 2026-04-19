@@ -1491,13 +1491,26 @@
     <script src="https://player.vimeo.com/api/player.js"></script>
     <script>
         var vimeoPlayer = new Vimeo.Player(document.getElementById('vimeo-hero'));
+        var isLooping = false;
+        function loopToStart() {
+            if (isLooping) return;
+            isLooping = true;
+            vimeoPlayer.setCurrentTime(0).then(function() {
+                vimeoPlayer.play();
+                isLooping = false;
+            });
+        }
         vimeoPlayer.ready().then(function() {
             vimeoPlayer.setCurrentTime(0);
+            vimeoPlayer.play();
         });
         vimeoPlayer.on('timeupdate', function(data) {
-            if (data.seconds >= 17) {
-                vimeoPlayer.setCurrentTime(0);
+            if (data.seconds >= 16.5) {
+                loopToStart();
             }
+        });
+        vimeoPlayer.on('ended', function() {
+            loopToStart();
         });
     </script>
 
