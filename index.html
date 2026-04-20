@@ -272,14 +272,6 @@
             transform: rotate(-45deg) translate(7px, -6px);
         }
 
-        /* Hero crossfade */
-        .hero-bg {
-            opacity: 0;
-            transition: opacity 1s ease;
-        }
-        .hero-bg.hero-active {
-            opacity: 1;
-        }
 
         /* Hero Section */
         .hero {
@@ -1262,8 +1254,7 @@
 
     <!-- Hero Section -->
     <section class="hero" id="home">
-        <iframe id="vimeo-a" class="hero-bg hero-active" src="https://player.vimeo.com/video/1184398984?badge=0&amp;autopause=0&amp;player_id=0&amp;app_id=58479&amp;autoplay=1&amp;muted=1&amp;loop=0&amp;background=1" frameborder="0" allow="autoplay; fullscreen; picture-in-picture; clipboard-write; encrypted-media; web-share" referrerpolicy="strict-origin-when-cross-origin" title="Showreel 2026"></iframe>
-        <iframe id="vimeo-b" class="hero-bg" src="https://player.vimeo.com/video/1184398984?badge=0&amp;autopause=0&amp;player_id=0&amp;app_id=58479&amp;autoplay=0&amp;muted=1&amp;loop=0&amp;background=1" frameborder="0" allow="autoplay; fullscreen; picture-in-picture; clipboard-write; encrypted-media; web-share" referrerpolicy="strict-origin-when-cross-origin" title="Showreel 2026"></iframe>
+        <iframe id="vimeo-hero" class="hero-bg hero-active" src="https://player.vimeo.com/video/1184398984?badge=0&amp;autopause=0&amp;player_id=0&amp;app_id=58479&amp;autoplay=1&amp;muted=1&amp;loop=1&amp;background=1" frameborder="0" allow="autoplay; fullscreen; picture-in-picture; clipboard-write; encrypted-media; web-share" referrerpolicy="strict-origin-when-cross-origin" title="Showreel 2026"></iframe>
         <div class="hero-content">
         </div>
     </section>
@@ -1497,67 +1488,23 @@
     </script>
 
     <!-- Structured data: WebSite -->
-    <!-- Vimeo Player API: seamless crossfade loop -->
+    <!-- Vimeo Player API: seek back at 17s, loop=1 as safety net -->
     <script src="https://player.vimeo.com/api/player.js"></script>
     <script>
-        var playerA = new Vimeo.Player(document.getElementById('vimeo-a'));
-        var playerB = new Vimeo.Player(document.getElementById('vimeo-b'));
-        var elA = document.getElementById('vimeo-a');
-        var elB = document.getElementById('vimeo-b');
+        var vimeoPlayer = new Vimeo.Player(document.getElementById('vimeo-hero'));
+        var seeking = false;
 
-        var active  = { player: playerA, el: elA };
-        var standby = { player: playerB, el: elB };
-        var crossfading    = false;
-        var standbyStarted = false;
-
-        // Pre-load standby at position 0 but keep it paused
-        playerB.ready().then(function() {
-            playerB.pause();
-            playerB.setCurrentTime(0);
-        });
-
-        function startStandby() {
-            if (standbyStarted || crossfading) return;
-            standbyStarted = true;
-            standby.player.setCurrentTime(0);
-            standby.player.play();
-        }
-
-        function doCrossfade() {
-            if (crossfading) return;
-            crossfading    = true;
-            standbyStarted = false;
-
-            standby.el.classList.add('hero-active');
-            active.el.classList.remove('hero-active');
-
-            var prevActive  = active;
-            var prevStandby = standby;
-            active  = prevStandby;
-            standby = prevActive;
-
-            // Reset old active (now invisible) after fade completes
-            setTimeout(function() {
-                standby.player.pause();
-                standby.player.setCurrentTime(0);
-                crossfading = false;
-            }, 1200);
-        }
-
-        [playerA, playerB].forEach(function(player) {
-            player.on('timeupdate', function(data) {
-                if (player !== active.player) return;
-                if (data.seconds >= 14 && !standbyStarted) {
-                    startStandby();
-                }
-                if (data.seconds >= 16.5 && standbyStarted) {
-                    doCrossfade();
-                }
-            });
-            player.on('ended', function() {
-                if (player !== active.player) return;
-                doCrossfade();
-            });
+        vimeoPlayer.on('timeupdate', function(data) {
+            if (seeking) return;
+            if (data.seconds >= 17) {
+                seeking = true;
+                vimeoPlayer.setCurrentTime(0).then(function() {
+                    vimeoPlayer.play();
+                    seeking = false;
+                }).catch(function() {
+                    seeking = false;
+                });
+            }
         });
     </script>
 
