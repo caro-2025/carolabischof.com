@@ -1487,6 +1487,23 @@
     }
     </script>
 
+    <!-- Vimeo: seek back at 16s, loop=1 as black-screen safety net -->
+    <script src="https://player.vimeo.com/api/player.js"></script>
+    <script>
+        var player = new Vimeo.Player(document.getElementById('vimeo-hero'));
+        var seeking = false;
+        player.on('timeupdate', function(data) {
+            if (seeking) return;
+            if (data.seconds >= 16) {
+                seeking = true;
+                player.setCurrentTime(0).then(function() {
+                    player.play();
+                    seeking = false;
+                }).catch(function() { seeking = false; });
+            }
+        });
+    </script>
+
     <!-- Structured data: WebSite -->
     <script type="application/ld+json">
     {
