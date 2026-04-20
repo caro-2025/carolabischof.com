@@ -272,20 +272,6 @@
             transform: rotate(-45deg) translate(7px, -6px);
         }
 
-        /* Hero loop fade overlay */
-        .hero-loop-overlay {
-            position: absolute;
-            inset: 0;
-            background: #000;
-            opacity: 0;
-            z-index: 2;
-            pointer-events: none;
-            transition: opacity 0.4s ease;
-        }
-
-        .hero-loop-overlay.fade-in {
-            opacity: 1;
-        }
 
         /* Hero Section */
         .hero {
@@ -1268,9 +1254,8 @@
 
     <!-- Hero Section -->
     <section class="hero" id="home">
-        <iframe id="vimeo-hero" class="hero-bg" src="https://player.vimeo.com/video/1184398984?badge=0&amp;autopause=0&amp;player_id=0&amp;app_id=58479&amp;autoplay=1&amp;muted=1&amp;loop=0&amp;background=1" frameborder="0" allow="autoplay; fullscreen; picture-in-picture; clipboard-write; encrypted-media; web-share" referrerpolicy="strict-origin-when-cross-origin" title="Showreel 2026"></iframe>
-        <div class="hero-loop-overlay"></div>
-        <div class="hero-content">
+        <iframe id="vimeo-hero" class="hero-bg" src="https://player.vimeo.com/video/1184398984?badge=0&amp;autopause=0&amp;player_id=0&amp;app_id=58479&amp;autoplay=1&amp;muted=1&amp;loop=1&amp;background=1" frameborder="0" allow="autoplay; fullscreen; picture-in-picture; clipboard-write; encrypted-media; web-share" referrerpolicy="strict-origin-when-cross-origin" title="Showreel 2026"></iframe>
+<div class="hero-content">
         </div>
     </section>
 
@@ -1503,48 +1488,6 @@
     </script>
 
     <!-- Structured data: WebSite -->
-    <!-- Vimeo Player API: loop 0–16s only -->
-    <script src="https://player.vimeo.com/api/player.js"></script>
-    <script>
-        var vimeoPlayer = new Vimeo.Player(document.getElementById('vimeo-hero'));
-        var overlay = document.querySelector('.hero-loop-overlay');
-        var isLooping = false;
-
-        function loopToStart() {
-            if (isLooping) return;
-            isLooping = true;
-            overlay.classList.add('fade-in');
-            setTimeout(function() {
-                vimeoPlayer.setCurrentTime(0).then(function() {
-                    vimeoPlayer.play().then(function() {
-                        setTimeout(function() {
-                            overlay.classList.remove('fade-in');
-                            isLooping = false;
-                        }, 300);
-                    }).catch(function() {
-                        overlay.classList.remove('fade-in');
-                        isLooping = false;
-                    });
-                });
-            }, 200);
-        }
-
-        vimeoPlayer.ready().then(function() {
-            vimeoPlayer.setCurrentTime(0);
-            vimeoPlayer.play();
-        });
-
-        vimeoPlayer.on('timeupdate', function(data) {
-            if (data.seconds >= 16.5) {
-                loopToStart();
-            }
-        });
-
-        vimeoPlayer.on('ended', function() {
-            loopToStart();
-        });
-    </script>
-
     <script type="application/ld+json">
     {
       "@context": "https://schema.org",
