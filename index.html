@@ -1480,6 +1480,18 @@
     </script>
 
     <!-- Vimeo: seek back at 16s, loop=1 as black-screen safety net -->
+    <!-- Safari loop fix: seek before end to avoid black frame -->
+    <script>
+        var heroVideo = document.querySelector('.hero-bg');
+        if (heroVideo) {
+            heroVideo.addEventListener('timeupdate', function() {
+                if (heroVideo.duration && heroVideo.currentTime > heroVideo.duration - 0.3) {
+                    heroVideo.currentTime = 0;
+                }
+            });
+        }
+    </script>
+
     <!-- Structured data: WebSite -->
     <script type="application/ld+json">
     {
