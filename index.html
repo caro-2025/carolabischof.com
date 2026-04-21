@@ -412,10 +412,6 @@
             padding: 0 2rem;
         }
 
-        .about .section-content {
-            max-width: 800px;
-        }
-
         /* Projects Section */
         .projects {
             background: #ebe4d8;
@@ -453,6 +449,48 @@
         /* About Section */
         .about {
             background: #f9f5ef;
+        }
+
+        .about .section-content {
+            max-width: 1100px;
+            text-align: center;
+        }
+
+        .about-layout {
+            display: flex;
+            gap: 4rem;
+            align-items: center;
+            margin-top: 2rem;
+        }
+
+        .about-text {
+            flex: 1;
+        }
+
+        .about-image-wrap {
+            flex-shrink: 0;
+        }
+
+        .about-portrait {
+            width: 420px;
+            height: 420px;
+            object-fit: cover;
+            object-position: 52% 65%;
+            border-radius: 40px;
+            box-shadow: 0 8px 32px rgba(0, 0, 0, 0.13);
+            display: block;
+        }
+
+        @media (max-width: 768px) {
+            .about-layout {
+                flex-direction: column;
+                gap: 2rem;
+            }
+
+            .about-portrait {
+                width: 260px;
+                height: 260px;
+            }
         }
 
         /* Projects Section */
@@ -1254,11 +1292,18 @@
     <!-- About Section -->
     <section class="section about" id="about">
         <div class="section-content">
-            <h2>About</h2>
-            <p>To me, filmmaking is the art of turning quiet observations into meaningful stories.</p>
-            <p>My background in Geography and Social and Cultural Anthropology shapes the way I see the world. It taught me to look closer at how people live, how they connect, and what truly moves them.</p>
-            <p>I'm driven by a simple belief: that every person has a story worth telling, if you only know how to look and listen.</p>
-            <p>Video journalism gave me a strong foundation in shaping stories with clarity and heart. Through camera work, visual storytelling, and editing, my aim is always to make complex subjects feel human and tangible. I'm looking for the real moments that stay with you.</p>
+            <div class="about-layout">
+                <div class="about-image-wrap">
+                    <img src="Portfoliobild II.JPG" alt="Carola Bischof" class="about-portrait">
+                </div>
+                <div class="about-text">
+                    <h2>About</h2>
+                    <p>To me, filmmaking is the art of turning quiet observations into meaningful stories.</p>
+                    <p>My background in Geography and Social and Cultural Anthropology shapes the way I see the world. It taught me to look closer at how people live, how they connect, and what truly moves them.</p>
+                    <p>I'm driven by a simple belief: that every person has a story worth telling, if you only know how to look and listen.</p>
+                    <p>Video journalism gave me a strong foundation in shaping stories with clarity and heart. Through camera work, visual storytelling, and editing, my aim is always to make complex subjects feel human and tangible. I'm looking for the real moments that stay with you.</p>
+                </div>
+            </div>
         </div>
     </section>
 
