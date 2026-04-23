@@ -45,7 +45,7 @@
     
     <link rel="preconnect" href="https://fonts.googleapis.com">
     <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
-    <link href="https://fonts.googleapis.com/css2?family=Manrope:wght@300;400;500;600&family=Satisfy&display=swap" rel="stylesheet">
+    <link href="https://fonts.googleapis.com/css2?family=Manrope:wght@300;400;500;600&family=Satisfy&family=Cormorant+Garamond:ital,wght@0,400;0,500;1,400&display=swap" rel="stylesheet">
     <style>
         * {
             margin: 0;
@@ -474,8 +474,11 @@
         }
 
         .about-text p:first-child {
-            font-size: 1.2rem;
+            font-family: 'Cormorant Garamond', serif;
+            font-size: 1.5rem;
             font-weight: 400;
+            letter-spacing: 0.02em;
+            line-height: 1.5;
         }
 
         .about-highlight {
@@ -525,6 +528,10 @@
                 flex-direction: column;
                 align-items: center;
                 padding-top: 1.5rem;
+            }
+
+            .about-text {
+                margin-top: 1.5rem;
             }
 
             .about h2 {
@@ -588,14 +595,28 @@
         }
 
         .project-subtitle {
-            font-family: 'Manrope', sans-serif;
-            font-size: 1.2rem;
+            font-family: 'Cormorant Garamond', serif;
+            font-size: 1.5rem;
             font-weight: 400;
-            letter-spacing: 0.03em;
+            letter-spacing: 0.02em;
             color: #444444;
             margin-bottom: 1.5rem;
-            line-height: 1.9;
+            line-height: 1.5;
             text-align: center;
+        }
+
+        @media (min-width: 769px) {
+            .project-subtitle {
+                font-size: 1.7rem;
+            }
+
+            .about-text p:first-child {
+                font-family: 'Cormorant Garamond', serif;
+                font-size: 1.7rem;
+                font-weight: 400;
+                letter-spacing: 0.02em;
+                line-height: 1.5;
+            }
         }
 
         .projects-text p {

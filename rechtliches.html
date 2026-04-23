@@ -9,49 +9,43 @@
     <title>Legal - Carola Bischof</title>
     <link rel="preconnect" href="https://fonts.googleapis.com">
     <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
-    <link href="https://fonts.googleapis.com/css2?family=Manrope:wght@300;400;500;600&family=Satisfy&display=swap" rel="stylesheet">
-    
-    <!-- Canonical URL -->
+    <link href="https://fonts.googleapis.com/css2?family=Manrope:wght@300;400;500;600&family=Satisfy&family=Cormorant+Garamond:ital,wght@0,400;0,500;1,400&display=swap" rel="stylesheet">
+
     <link rel="canonical" href="https://www.carolabischof.com/rechtliches.html">
-    
-    <!-- Favicon -->
     <link rel="icon" type="image/png" sizes="32x32" href="favicon-32x32.png">
     <link rel="icon" type="image/png" sizes="16x16" href="favicon-16x16.png">
     <link rel="apple-touch-icon" sizes="180x180" href="apple-touch-icon.png">
-    
+
     <style>
         * {
             margin: 0;
             padding: 0;
             box-sizing: border-box;
         }
-        
+
         html, body {
             height: 100%;
-            margin: 0;
-            padding: 0;
+            overflow-x: hidden;
         }
-        
+
         body {
             font-family: 'Manrope', sans-serif;
-            line-height: 1.8;
+            line-height: 1.9;
             font-weight: 300;
             color: #444444;
-            background: #f5f0ea;
+            background: #f9f5ef;
             padding-top: 80px;
             display: flex;
             flex-direction: column;
             min-height: 100vh;
-            box-sizing: border-box;
-            overflow-x: hidden;
         }
 
         /* Navigation */
         nav {
-            background: rgba(93, 78, 55, 0.15);
+            background: rgba(237, 232, 224, 0.88);
             backdrop-filter: blur(12px);
             -webkit-backdrop-filter: blur(12px);
-            border-bottom: 1px solid rgba(93, 78, 55, 0.15);
+            border-bottom: 1px solid rgba(93, 78, 55, 0.12);
             padding: 1.5rem 0;
             position: fixed;
             width: 100%;
@@ -72,7 +66,7 @@
         .logo a {
             font-family: 'Satisfy', cursive;
             font-size: 1.4rem;
-            color: #5D4E37;
+            color: rgba(93, 78, 55, 0.85);
             text-decoration: none;
             letter-spacing: 0.02em;
             outline: none;
@@ -93,7 +87,7 @@
 
         .nav-links li + li::before {
             content: '|';
-            color: rgba(93, 78, 55, 0.4);
+            color: rgba(93, 78, 55, 0.3);
             margin: 0 1rem;
             font-weight: 300;
             font-family: 'Manrope', sans-serif;
@@ -101,7 +95,7 @@
 
         .nav-links a {
             text-decoration: none;
-            color: rgba(93, 78, 55, 0.8);
+            color: rgba(60, 48, 32, 1);
             font-weight: 300;
             font-family: 'Manrope', sans-serif;
             font-size: 0.75rem;
@@ -112,10 +106,10 @@
         }
 
         .nav-links a:hover {
-            color: #5D4E37;
+            color: rgba(30, 22, 10, 1);
         }
-        
-        /* Hamburger Menu */
+
+        /* Hamburger */
         .hamburger {
             display: none;
             flex-direction: column;
@@ -126,97 +120,87 @@
             background: none;
         }
 
-        .hamburger:focus {
-            outline: none;
-        }
-
         .hamburger span {
             width: 25px;
             height: 2px;
-            background: rgba(93, 78, 55, 0.8);
+            background: rgba(93, 78, 55, 0.75);
             margin: 3px 0;
             transition: 0.3s;
             border-radius: 2px;
         }
 
-        .hamburger.active span:nth-child(1) {
-            transform: rotate(45deg) translate(5px, 5px);
-        }
+        .hamburger.active span:nth-child(1) { transform: rotate(45deg) translate(5px, 5px); }
+        .hamburger.active span:nth-child(2) { opacity: 0; }
+        .hamburger.active span:nth-child(3) { transform: rotate(-45deg) translate(7px, -6px); }
 
-        .hamburger.active span:nth-child(2) {
-            opacity: 0;
-        }
-
-        .hamburger.active span:nth-child(3) {
-            transform: rotate(-45deg) translate(7px, -6px);
-        }
-        
+        /* Content */
         .container {
             max-width: 800px;
             margin: 0 auto;
-            padding: 2rem;
-        }
-        
-        .page-header {
-            text-align: left;
-            margin-bottom: 3rem;
-            padding: 0;
-            background: none;
-            border: none;
-            outline: none;
-            box-shadow: none;
-            backdrop-filter: none;
-        }
-        
-        .page-header h1 {
-            margin-left: 0;
-            text-align: left;
-        }
-        
-        h1 {
-            font-family: 'Manrope', sans-serif;
-            font-size: 2rem;
-            font-weight: 300;
-            color: rgba(93, 78, 55, 0.9);
-            letter-spacing: 0.04em;
-            margin-bottom: 2.5rem;
-            text-align: left;
+            padding: 2.5rem 2rem 5rem;
+            flex: 1;
         }
 
-        h2 {
+        h1 {
             font-family: 'Manrope', sans-serif;
             font-size: 1rem;
             font-weight: 500;
-            color: rgba(93, 78, 55, 0.9);
-            letter-spacing: 0.08em;
+            letter-spacing: 0.1em;
             text-transform: uppercase;
+            color: rgba(93, 78, 55, 0.85);
+            margin-bottom: 0.5rem;
+        }
+
+        .reveal-line {
+            height: 1px;
+            background: rgba(93, 78, 55, 0.4);
+            width: 100%;
+            margin-bottom: 3rem;
+        }
+
+        h2 {
+            font-family: 'Cormorant Garamond', serif;
+            font-size: 1.5rem;
+            font-weight: 400;
+            color: #444444;
+            letter-spacing: 0.02em;
             margin: 2.5rem 0 0.8rem 0;
         }
 
         h3 {
-            font-family: 'Manrope', sans-serif;
-            font-size: 0.85rem;
-            font-weight: 600;
-            color: rgba(93, 78, 55, 0.7);
-            letter-spacing: 0.1em;
-            text-transform: uppercase;
-            margin: 1.8rem 0 0.5rem 0;
+            font-family: 'Cormorant Garamond', serif;
+            font-size: 1.5rem;
+            font-weight: 400;
+            color: #444444;
+            letter-spacing: 0.02em;
+            margin: 2.5rem 0 0.8rem 0;
         }
-        
+
         p {
+            font-family: 'Manrope', sans-serif;
+            font-size: 1rem;
+            font-weight: 300;
+            line-height: 1.9;
+            letter-spacing: 0.03em;
             margin-bottom: 1rem;
-            font-size: 1.1rem;
+            color: #444444;
         }
-        
+
         ul {
             margin-left: 2rem;
             margin-bottom: 1rem;
         }
-        
+
         li {
             margin-bottom: 0.5rem;
+            font-weight: 300;
+            font-size: 1rem;
         }
-        
+
+        a {
+            color: #444444;
+        }
+
         /* Footer */
         footer {
             background: url('Bilder/Dronenaufnahme.jpg') center/cover no-repeat;
@@ -242,7 +226,6 @@
             justify-content: space-between;
             align-items: center;
             gap: 1rem;
-            position: relative;
         }
 
         .footer-left {
@@ -269,9 +252,7 @@
             transition: color 0.3s ease;
         }
 
-        .footer-email:hover {
-            color: rgba(248, 242, 230, 0.95);
-        }
+        .footer-email:hover { color: rgba(248, 242, 230, 0.95); }
 
         .footer-meta {
             display: flex;
@@ -285,15 +266,9 @@
             font-size: 0.8rem;
             font-weight: 300;
             transition: color 0.3s ease;
-            border: none !important;
-            outline: none !important;
-            box-shadow: none !important;
-            background: none !important;
         }
 
-        .footer-legal:hover {
-            color: rgba(248, 242, 230, 0.78);
-        }
+        .footer-legal:hover { color: rgba(248, 242, 230, 0.78); }
 
         .footer-copyright {
             color: rgba(248, 242, 230, 0.38);
@@ -316,23 +291,13 @@
             align-items: center;
         }
 
-        .footer-social-icon:hover {
-            color: rgba(248, 242, 230, 1);
-        }
-        
-        a {
-            color: #444444;
-        }
-        
+        .footer-social-icon:hover { color: rgba(248, 242, 230, 1); }
+
         @media (max-width: 768px) {
-            nav {
-                box-shadow: none;
-                border-bottom: none;
-            }
-            
+            nav { border-bottom: none; }
+
             .nav-container {
                 padding: 0 1rem;
-                position: relative;
                 justify-content: flex-end;
             }
 
@@ -341,11 +306,9 @@
                 left: 50%;
                 transform: translateX(-50%);
             }
-            
-            .hamburger {
-                display: flex;
-            }
-            
+
+            .hamburger { display: flex; }
+
             .nav-links {
                 display: none;
                 position: fixed;
@@ -353,66 +316,26 @@
                 left: 0 !important;
                 right: 0 !important;
                 width: 100vw !important;
-                margin: 0 !important;
-                max-width: none !important;
                 background: rgba(245, 241, 232, 0.95);
                 backdrop-filter: blur(10px);
                 flex-direction: column;
                 padding: 2rem 0;
                 gap: 1.5rem;
                 text-align: center;
-                box-shadow: 0 4px 20px rgba(0, 0, 0, 0.1);
-                border: none;
-                outline: none;
                 z-index: 10001;
             }
 
-            .nav-links li + li::before {
-                display: none;
-            }
-            
-            .nav-links.active {
-                display: flex;
-            }
-            
-            .nav-links li {
-                margin: 0;
-                padding: 0;
-                border-bottom: none;
-            }
+            .nav-links li + li::before { display: none; }
+            .nav-links.active { display: flex; }
 
-            .container {
-                padding: 1rem;
-            }
-            
-            .page-header {
-                padding: 2rem 1rem;
-                margin: 0 1rem 2rem 1rem;
-            }
-            
-            h1 {
-                font-size: 2rem;
-                text-align: center;
-            }
+            .container { padding: 1.5rem 1.5rem 3rem; }
 
-            h2 {
-                font-size: 1rem;
-                text-align: center;
-            }
+            h1 { text-align: center; }
+            h2 { text-align: center; font-size: 1.3rem; }
+            h3 { text-align: center; }
+            p  { text-align: center; }
 
-            h3 {
-                font-size: 0.85rem;
-                text-align: center;
-            }
-
-            p {
-                font-size: 1rem;
-                text-align: center;
-            }
-            
-            .footer-glass {
-                padding: 3rem 0 2rem;
-            }
+            .footer-glass { padding: 3rem 0 2rem; }
 
             .footer-content {
                 padding: 0 1.5rem;
@@ -422,15 +345,8 @@
                 text-align: center;
             }
 
-            .footer-left {
-                align-items: center;
-                text-align: center;
-            }
-
-            .footer-social {
-                align-self: center;
-                gap: 1.5rem;
-            }
+            .footer-left { align-items: center; text-align: center; }
+            .footer-social { gap: 1.5rem; }
         }
     </style>
 </head>
@@ -446,10 +362,9 @@
                 <span></span>
                 <span></span>
             </div>
-            <ul class="nav-links">
+            <ul class="nav-links" id="navLinks">
                 <li><a href="index.html#about">About</a></li>
-                <li><a href="index.html#work-samples">Work Samples</a></li>
-                <li><a href="index.html#projects">Personal Projects</a></li>
+                <li><a href="index.html#projects-focus">Projects</a></li>
                 <li><a href="index.html#contact">Contact</a></li>
             </ul>
         </div>
@@ -506,34 +421,22 @@
         </div>
       </div>
     </footer>
-    
+
     <script>
         function toggleMenu() {
-            const navLinks = document.querySelector('.nav-links');
+            const navLinks = document.getElementById('navLinks');
             const hamburger = document.querySelector('.hamburger');
             navLinks.classList.toggle('active');
             hamburger.classList.toggle('active');
         }
 
-        // Close menu when clicking outside
         document.addEventListener('click', function(event) {
-            const navLinks = document.querySelector('.nav-links');
+            const navLinks = document.getElementById('navLinks');
             const hamburger = document.querySelector('.hamburger');
-            
             if (!event.target.closest('nav')) {
                 navLinks.classList.remove('active');
                 hamburger.classList.remove('active');
             }
-        });
-
-        // Close menu when clicking on a link
-        document.querySelectorAll('.nav-links a').forEach(link => {
-            link.addEventListener('click', function() {
-                const navLinks = document.querySelector('.nav-links');
-                const hamburger = document.querySelector('.hamburger');
-                navLinks.classList.remove('active');
-                hamburger.classList.remove('active');
-            });
         });
     </script>
 </body>
