@@ -451,9 +451,14 @@
             background: #f9f5ef;
         }
 
+
         .about .section-content {
             max-width: 1100px;
-            text-align: center;
+        }
+
+        .about h2 {
+            text-align: left;
+            margin-bottom: 0.5rem;
         }
 
         .about-layout {
@@ -465,10 +470,37 @@
 
         .about-text {
             flex: 1;
+            margin-top: -2rem;
+        }
+
+        .about-text p:first-child {
+            font-size: 1.2rem;
+            font-weight: 400;
+        }
+
+        .about-highlight {
+            font-style: italic;
+            font-weight: 400;
+            color: #5D4E37;
+            font-size: 1.05rem;
+            margin-top: 1.2rem;
         }
 
         .about-image-wrap {
             flex-shrink: 0;
+            padding-top: 2rem;
+        }
+
+        .about-image-caption {
+            font-family: 'Manrope', sans-serif;
+            font-size: 0.85rem;
+            font-weight: 300;
+            font-style: italic;
+            color: rgba(93, 78, 55, 0.7);
+            text-align: center;
+            margin-top: 1rem;
+            margin-bottom: 0;
+            line-height: 1.6;
         }
 
         .about-portrait {
@@ -485,6 +517,18 @@
             .about-layout {
                 flex-direction: column;
                 gap: 2rem;
+                align-items: center;
+            }
+
+            .about-image-wrap {
+                display: flex;
+                flex-direction: column;
+                align-items: center;
+                padding-top: 1.5rem;
+            }
+
+            .about h2 {
+                text-align: center;
             }
 
             .about-portrait {
@@ -507,7 +551,7 @@
             text-align: left;
             max-width: 1100px;
             margin: 0 auto;
-            padding: 4rem 2rem;
+            padding: 3rem 2rem 5rem;
         }
 
         .projects-section h2 {
@@ -524,7 +568,7 @@
             display: flex;
             gap: 4rem;
             align-items: center;
-            margin-top: 2rem;
+            margin-top: 3.5rem;
         }
 
         .projects-left {
@@ -541,6 +585,17 @@
             line-height: 1.9;
             letter-spacing: 0.03em;
             color: #444444;
+        }
+
+        .project-subtitle {
+            font-family: 'Manrope', sans-serif;
+            font-size: 1.2rem;
+            font-weight: 400;
+            letter-spacing: 0.03em;
+            color: #444444;
+            margin-bottom: 1.5rem;
+            line-height: 1.9;
+            text-align: center;
         }
 
         .projects-text p {
@@ -594,7 +649,7 @@
             text-align: left;
             max-width: 1100px;
             margin: 0 auto;
-            padding: 4rem 2rem;
+            padding: 3rem 2rem 5rem;
         }
 
 
@@ -1053,8 +1108,7 @@
             }
 
             .about .section-content {
-                padding-top: 4rem;
-                padding-bottom: 4rem;
+                padding: 4rem 1.5rem;
             }
 
             .section.contact {
@@ -1160,7 +1214,7 @@
 
             .projects-section .section-content,
             .drone-section .section-content {
-                padding: 2.5rem 1.5rem;
+                padding: 2rem 1.5rem 4rem;
             }
 
             .project-description {
@@ -1290,18 +1344,20 @@
     </section>
 
     <!-- About Section -->
-    <section class="section about" id="about">
+    <section class="section about reveal-section" id="about">
         <div class="section-content">
-            <div class="about-layout">
+            <h2 class="reveal-title">About</h2>
+            <div class="reveal-line"></div>
+            <div class="about-layout reveal-content">
                 <div class="about-image-wrap">
                     <img src="Portfoliobild II.JPG" alt="Carola Bischof" class="about-portrait">
+                    <p class="about-image-caption">Everyone has a story worth telling,<br>if you know how to look and listen.</p>
                 </div>
                 <div class="about-text">
-                    <h2>About</h2>
                     <p>To me, filmmaking is the art of turning quiet observations into meaningful stories.</p>
                     <p>My background in Geography and Social and Cultural Anthropology shapes the way I see the world. It taught me to look closer at how people live, how they connect, and what truly moves them.</p>
-                    <p>I'm driven by a simple belief: that every person has a story worth telling, if you only know how to look and listen.</p>
-                    <p>Video journalism gave me a strong foundation in shaping stories with clarity and heart. Through camera work, visual storytelling, and editing, my aim is always to make complex subjects feel human and tangible. I'm looking for the real moments that stay with you.</p>
+                    <p>Video journalism gave me a strong foundation in shaping stories with clarity and heart. Through camera work, visual storytelling, and editing, my aim is always to make complex subjects feel human and tangible.</p>
+                    <p class="about-highlight">I'm looking for the real moments that stay with you.</p>
                 </div>
             </div>
         </div>
@@ -1312,7 +1368,6 @@
         <div class="section-content">
             <h2 class="reveal-title">Projects</h2>
             <div class="reveal-line"></div>
-            <span class="section-subtitle">What Comes Together</span>
             <div class="projects-layout reveal-content">
                 <div class="projects-left">
                     <div class="projects-grid kamera-grid">
@@ -1325,8 +1380,9 @@
                     </div>
                 </div>
                 <div class="projects-text">
-                    <p>The quiet ritual before the story begins.</p>
-                    <p>From individual components to a camera ready for use.</p>
+                    <h3 class="project-subtitle">What Comes Together</h3>
+                    <p><em>The quiet ritual before the story begins.</em></p>
+                    <p style="margin-bottom: 0.3rem;">From individual components to a camera ready for use.</p>
                     <p>This is the foundation of every visual narrative.</p>
                 </div>
             </div>
@@ -1337,11 +1393,12 @@
     <section class="section projects-section kamera-section reveal-section" id="kamera">
         <div class="section-content">
             <div class="reveal-line-right"></div>
-            <span class="section-subtitle-right">What Comes Into Focus</span>
             <div class="projects-layout reveal-content">
                 <div class="projects-text">
-                    <p>To choose the frame is to choose the story.</p>
-                    <p>But to choose the focus is to choose what matters. Moving the focus is more than a technique. It is a way of guiding the eye to the moment.</p>
+                    <h3 class="project-subtitle">What Comes Into Focus</h3>
+                    <p style="margin-bottom: 2rem;"><em>To choose the frame is to choose the story.</em></p>
+                    <p style="margin-bottom: 0.3rem;">But to choose the focus is to choose what matters. Moving the focus is more than a technique.</p>
+                    <p>It is a way of guiding the eye to the moment.</p>
                 </div>
                 <div class="projects-grid">
                     <img loading="lazy" src="Bilder/schaerfenverlagerung-1.png" alt="Schärfenverlagerung – Arbeitsproben 1">
@@ -1360,14 +1417,14 @@
     <section class="section drone-section reveal-section" id="drone">
         <div class="section-content">
             <div class="reveal-line"></div>
-            <span class="section-subtitle">What Comes To Light</span>
             <div class="projects-layout reveal-content">
                 <div class="drone-video">
                     <video src="Bilder/drone-footage.mp4" autoplay muted loop playsinline></video>
                 </div>
                 <div class="projects-text">
-                    <p>Finding hope through the lens when the world was standing still.</p>
-                    <p>During the pandemic, I captured the quiet beauty and symmetry of southern Germany.</p>
+                    <h3 class="project-subtitle">What Comes To Light</h3>
+                    <p><em>Finding hope through the lens when the world was standing still.</em></p>
+                    <p style="margin-bottom: 0.3rem;">During the pandemic, I captured the quiet beauty and symmetry of southern Germany.</p>
                     <p>It is more than just footage; it is a reminder that comfort can always be found when you change your perspective.</p>
                 </div>
             </div>
