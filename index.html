@@ -45,7 +45,7 @@
     
     <link rel="preconnect" href="https://fonts.googleapis.com">
     <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
-    <link href="https://fonts.googleapis.com/css2?family=Manrope:wght@300;400;500;600&family=Satisfy&family=Cormorant+Garamond:ital,wght@0,400;0,500;1,400&display=swap" rel="stylesheet">
+    <link href="https://fonts.googleapis.com/css2?family=Manrope:wght@300;400;500;600&family=Satisfy&family=Caveat:wght@300;400&family=Cormorant+Garamond:ital,wght@0,400;0,500;1,400&display=swap" rel="stylesheet">
     <style>
         * {
             margin: 0;
@@ -138,17 +138,27 @@
         }
 
         .logo a {
-            font-family: 'Satisfy', cursive;
-            font-size: 1.4rem;
+            font-family: 'Caveat', cursive;
+            font-weight: 300;
+            font-size: 2rem;
             color: rgba(248, 242, 230, 0.92);
             text-decoration: none;
-            letter-spacing: 0.02em;
+            letter-spacing: 0.04em;
             outline: none;
             white-space: nowrap;
         }
 
         .logo a:focus {
             outline: none;
+        }
+
+        @media (min-width: 769px) {
+            .logo a {
+                font-family: 'Caveat', cursive;
+                font-weight: 300;
+                font-size: 2.8rem;
+                letter-spacing: 0.04em;
+            }
         }
 
         .nav-links {
