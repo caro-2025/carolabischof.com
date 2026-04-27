@@ -1837,7 +1837,8 @@
     }
     </script>
 
-    <!-- Cookie Consent Banner (desktop only) -->
+    <!-- Cookie Consent Banner -->
+    <div id="cookie-overlay">
     <div id="cookie-banner">
         <button id="cookie-close">&times;</button>
         <div id="cookie-banner-inner">
@@ -1848,15 +1849,32 @@
             </div>
         </div>
     </div>
+    </div>
 
     <style>
-        #cookie-banner {
+        #cookie-overlay {
             display: none;
             position: fixed;
-            top: 50%;
-            left: 50%;
-            transform: translate(-50%, -50%);
+            top: 0;
+            left: 0;
+            width: 100%;
+            height: 100%;
             z-index: 9999;
+            -webkit-box-align: center;
+            -webkit-align-items: center;
+            align-items: center;
+            -webkit-box-pack: center;
+            -webkit-justify-content: center;
+            justify-content: center;
+            pointer-events: none;
+        }
+        #cookie-overlay.visible {
+            display: -webkit-box;
+            display: -webkit-flex;
+            display: flex;
+        }
+        #cookie-banner {
+            pointer-events: all;
             width: 520px;
             max-width: calc(100vw - 3rem);
             background: #ede8df;
@@ -1864,6 +1882,7 @@
             border-radius: 4px;
             padding: 1.4rem 1.8rem;
             box-shadow: 0 4px 20px rgba(0,0,0,0.1);
+            position: relative;
         }
         #cookie-close {
             position: absolute;
@@ -1881,8 +1900,6 @@
         #cookie-close:hover {
             color: rgba(50, 45, 40, 0.75);
         }
-        #cookie-banner.visible { display: block; }
-
         @media (max-width: 768px) {
             #cookie-banner {
                 width: calc(100vw - 2rem);
@@ -1958,13 +1975,14 @@
 
     <script>
         (function() {
+            var overlay = document.getElementById('cookie-overlay');
             var consent = localStorage.getItem('cookie_consent');
             if (!consent) {
-                document.getElementById('cookie-banner').classList.add('visible');
+                overlay.classList.add('visible');
             }
             document.getElementById('cookie-accept').addEventListener('click', function() {
                 localStorage.setItem('cookie_consent', 'accepted');
-                document.getElementById('cookie-banner').classList.remove('visible');
+                overlay.classList.remove('visible');
                 loadAnalytics();
             });
             document.getElementById('cookie-decline').addEventListener('click', function() {
@@ -1972,12 +1990,12 @@
                 btn.classList.add('flash');
                 setTimeout(function() {
                     localStorage.setItem('cookie_consent', 'declined');
-                    document.getElementById('cookie-banner').classList.remove('visible');
+                    overlay.classList.remove('visible');
                     btn.classList.remove('flash');
                 }, 250);
             });
             document.getElementById('cookie-close').addEventListener('click', function() {
-                document.getElementById('cookie-banner').classList.remove('visible');
+                overlay.classList.remove('visible');
             });
 
         })();
