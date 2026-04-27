@@ -305,6 +305,112 @@
             overflow: hidden;
         }
 
+        .hero-wrapper {
+            position: relative;
+        }
+
+        .play-showreel {
+            position: absolute;
+            bottom: 2.8rem;
+            right: 4rem;
+            z-index: 4;
+            cursor: pointer;
+            opacity: 1;
+            transition: opacity 0.4s ease;
+        }
+
+        .play-showreel.hidden {
+            opacity: 0;
+            pointer-events: none;
+        }
+
+        .play-showreel-text {
+            display: block;
+            font-family: 'Manrope', sans-serif;
+            font-size: 1rem;
+            font-weight: 500;
+            letter-spacing: 0.18em;
+            text-transform: uppercase;
+            color: rgba(248, 242, 230, 0.85);
+            margin-bottom: 0.6rem;
+            transition: color 0.2s ease;
+        }
+
+        .play-showreel:hover .play-showreel-text {
+            color: rgba(248, 242, 230, 1);
+        }
+
+        .play-showreel-line {
+            height: 1px;
+            width: 80px;
+            background: rgba(248, 242, 230, 0.75);
+            transform: scaleX(0);
+            transform-origin: left center;
+            animation: heroLineGrow 1s cubic-bezier(0.4, 0, 0.2, 1) 0.6s forwards;
+            transition: width 0.2s ease;
+        }
+
+        .play-showreel:hover .play-showreel-line {
+            background: rgba(248, 242, 230, 1);
+        }
+
+        @keyframes heroLineGrow {
+            from { transform: scaleX(0); }
+            to   { transform: scaleX(1); }
+        }
+
+        /* Showreel Modal */
+        .showreel-modal {
+            display: none;
+            position: fixed;
+            inset: 0;
+            z-index: 9998;
+            align-items: center;
+            justify-content: center;
+        }
+
+        .showreel-modal.open {
+            display: flex;
+        }
+
+        .showreel-modal-bg {
+            position: absolute;
+            inset: 0;
+            background: rgba(0, 0, 0, 0.92);
+        }
+
+        .showreel-modal-inner {
+            position: relative;
+            z-index: 1;
+            width: 90vw;
+            max-width: 1100px;
+            aspect-ratio: 16 / 9;
+        }
+
+        .showreel-modal-inner iframe {
+            width: 100%;
+            height: 100%;
+            border: none;
+        }
+
+        .showreel-modal-close {
+            position: absolute;
+            top: 1.2rem;
+            right: 1.5rem;
+            z-index: 2;
+            background: none;
+            border: none;
+            color: rgba(248, 242, 230, 0.7);
+            font-size: 2rem;
+            cursor: pointer;
+            line-height: 1;
+            transition: color 0.2s ease;
+        }
+
+        .showreel-modal-close:hover {
+            color: rgba(248, 242, 230, 1);
+        }
+
         .hero-bg {
             position: absolute;
             top: 0;
@@ -1273,6 +1379,11 @@
                 z-index: 10;
             }
 
+            .play-showreel {
+                right: 1.2rem;
+                bottom: 1.5rem;
+            }
+
             .contact .section-content {
                 margin: 1rem;
                 padding: 2rem 1rem;
@@ -1380,13 +1491,26 @@
     </nav>
 
     <!-- Hero Section -->
-    <section class="hero" id="home">
-        <video class="hero-bg" autoplay muted loop playsinline preload="auto">
-            <source src="Bilder/showreel-bg.mp4" type="video/mp4">
-        </video>
-<div class="hero-content">
+    <div class="hero-wrapper">
+        <section class="hero" id="home">
+            <video class="hero-bg" autoplay muted loop playsinline preload="auto">
+                <source src="Bilder/showreel-bg.mp4" type="video/mp4">
+            </video>
+            <div class="hero-content"></div>
+        </section>
+        <div class="play-showreel" id="playShowreel">
+            <span class="play-showreel-text">Play Showreel</span>
         </div>
-    </section>
+    </div>
+
+    <!-- Showreel Modal -->
+    <div class="showreel-modal" id="showreelModal">
+        <div class="showreel-modal-bg" id="showreelModalBg"></div>
+        <button class="showreel-modal-close" id="showreelModalClose">&times;</button>
+        <div class="showreel-modal-inner">
+            <iframe id="showreelIframe" src="" frameborder="0" allow="autoplay; fullscreen; picture-in-picture" allowfullscreen></iframe>
+        </div>
+    </div>
 
     <!-- About Section -->
     <section class="section about reveal-section" id="about">
@@ -1520,7 +1644,17 @@
             const heroContent = document.querySelector('.hero-content');
             const contactSection = document.querySelector('.contact');
             const parallaxSpeed = 0.2; // Slower speed
-            
+
+            // Hide play showreel when scrolling down
+            const playShowreel = document.querySelector('.play-showreel');
+            if (playShowreel) {
+                if (scrolled > 60) {
+                    playShowreel.classList.add('hidden');
+                } else {
+                    playShowreel.classList.remove('hidden');
+                }
+            }
+
             if (heroContent) {
                 const translateY = scrolled * parallaxSpeed;
                 heroContent.style.transform = `translateY(${translateY}px)`;
@@ -1639,6 +1773,38 @@
         }
     </script>
 
+    <!-- Showreel Modal Logic -->
+    <script>
+        (function() {
+            var VIMEO_URL = 'https://player.vimeo.com/video/1184398984?autoplay=1&muted=0';
+            var btn    = document.getElementById('playShowreel');
+            var modal  = document.getElementById('showreelModal');
+            var iframe = document.getElementById('showreelIframe');
+            var close  = document.getElementById('showreelModalClose');
+            var bg     = document.getElementById('showreelModalBg');
+
+            function openModal() {
+                iframe.src = VIMEO_URL;
+                modal.classList.add('open');
+                document.body.style.overflow = 'hidden';
+            }
+
+            function closeModal() {
+                modal.classList.remove('open');
+                iframe.src = '';
+                document.body.style.overflow = '';
+            }
+
+            if (btn)   btn.addEventListener('click', openModal);
+            if (close) close.addEventListener('click', closeModal);
+            if (bg)    bg.addEventListener('click', closeModal);
+
+            document.addEventListener('keydown', function(e) {
+                if (e.key === 'Escape') closeModal();
+            });
+        })();
+    </script>
+
     <!-- Structured data: WebSite -->
     <script type="application/ld+json">
     {
@@ -1710,8 +1876,27 @@
         #cookie-close:hover {
             color: rgba(50, 45, 40, 0.75);
         }
-        @media (min-width: 769px) {
-            #cookie-banner.visible { display: block; }
+        #cookie-banner.visible { display: block; }
+
+        @media (max-width: 768px) {
+            #cookie-banner {
+                width: calc(100vw - 2rem);
+                bottom: 1rem;
+                padding: 2rem 1.2rem 1.4rem;
+            }
+            #cookie-banner-inner {
+                flex-direction: column;
+                align-items: center;
+                gap: 0.6rem;
+            }
+            #cookie-banner p {
+                text-align: center;
+                margin-top: 0;
+            }
+            #cookie-buttons {
+                align-self: center;
+                margin-top: -0.2rem;
+            }
         }
         #cookie-banner-inner {
             display: flex;
