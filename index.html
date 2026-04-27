@@ -1853,9 +1853,9 @@
         #cookie-banner {
             display: none;
             position: fixed;
-            top: 2rem;
+            top: 50%;
             left: 50%;
-            transform: translateX(-50%);
+            transform: translate(-50%, -50%);
             z-index: 9999;
             width: 520px;
             max-width: calc(100vw - 3rem);
@@ -1886,7 +1886,6 @@
         @media (max-width: 768px) {
             #cookie-banner {
                 width: calc(100vw - 2rem);
-                top: 1rem;
                 padding: 2rem 1.2rem 1.4rem;
             }
             #cookie-banner-inner {
